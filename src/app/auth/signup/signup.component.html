@@ -1,0 +1,13 @@
+<h2>Sign Up</h2>
+<p>Register for new user</p>
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" matInput formControlName="password" placeholder="Password">
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Sign Up</button>
+</form>
