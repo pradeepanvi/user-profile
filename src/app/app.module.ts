@@ -8,6 +8,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler/src/core';
 import { MaterialModule } from './material/material.modules';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MaterialModule } from './material/material.modules';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
