@@ -27,6 +27,11 @@ export class AuthService {
             .catch(err => console.log(err))
     }
 
+    logOut() {
+        firebase.auth().signOut();
+        this.token = null;
+    }
+
     getUsersData() {
         const token = this.getToken()
         return this.http.get('https://identitycards-users.firebaseio.com/users.json?auth=' + token);

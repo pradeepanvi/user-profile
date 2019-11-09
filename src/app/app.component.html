@@ -13,9 +13,14 @@
           <a class="nav-link" routerLink="sign-in">Sign In</a>
         </li>
       </ng-template>
-      <li class="nav-item" *ngIf="_authService.isAuthenticated()">
-        <span class="nav-link" (click)="getData()">Get Data</span>
-      </li>
+      <ng-template [ngIf]="_authService.isAuthenticated()">
+        <li class="nav-item">
+          <span class="nav-link" style="cursor: pointer;" (click)="logOut()">Log Out</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" style="cursor: pointer;" (click)="getData()">Get Data</span>
+        </li>
+      </ng-template>
     </ul>
   </div>
 </nav>

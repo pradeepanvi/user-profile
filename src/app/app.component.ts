@@ -23,4 +23,8 @@ export class AppComponent implements OnInit {
     this._authService.getUsersData().subscribe(res => console.log(res));
   }
 
+  logOut() {
+    this._authService.logOut();
+  }
+
 }
