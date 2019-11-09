@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as firebase from "firebase";
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: "root"
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
     token: any;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: Router) { }
 
     signupUser(email, password) {
         firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -20,6 +21,7 @@ export class AuthService {
     signinUser(email, password) {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(res => {
+                this.router.navigate(['/'])
                 firebase.auth().currentUser.getIdToken()
                     .then((token: string) => this.token = token)
                 console.log(res);
