@@ -22,4 +22,5 @@ export class AppComponent implements OnInit {
   getData() {
     this._authService.getUsersData().subscribe(res => console.log(res));
   }
+
 }
