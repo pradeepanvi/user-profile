@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AuthService } from './shared/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { AuthService } from './shared/auth.service';
 export class AppComponent implements OnInit {
   title = 'profile';
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     firebase.initializeApp({
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
   logOut() {
     this._authService.logOut();
+    this.router.navigate(['sign-in'], { relativeTo: this.route })
   }
 
 }

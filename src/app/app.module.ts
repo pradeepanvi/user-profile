@@ -11,6 +11,7 @@ import { MaterialModule } from './material/material.modules';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AboutComponent } from './about/about.component';
     SignupComponent,
     SigninComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
