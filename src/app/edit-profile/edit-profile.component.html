@@ -1,0 +1,90 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Profile Data
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <div class="example-container">
+                <mat-form-field>
+                    <input matInput formControlName="displayName" placeholder="Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="email" placeholder="Email">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="emailVerified" placeholder="Email Verified">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="phoneNumber" placeholder="Phone No">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="photoURL" placeholder="Photo">
+                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        <div formArrayName="addressItems">
+            <mat-expansion-panel *ngFor="let item of addressItemsArray.controls; let i=index" [formGroupName]="i">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <input formControlName="name" class="disabled" disabled>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div>
+                    <h2>Add New Address</h2>
+                    <div class="example-container">
+                        <mat-form-field>
+                            <input matInput formControlName="name" placeholder="Full name">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput formControlName="mobile" placeholder="Mobile number">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="pincode" placeholder="Pincode">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="address1"
+                                placeholder="Flat, House no., Building, Company, Apartment:">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="address2"
+                                placeholder="Area, Colony, Street, Sector, Village:">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="landmark"
+                                placeholder="Landmark e.g. near apollo hospital:">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="city" placeholder="Town/City:">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput formControlName="state" placeholder="State: ">
+                        </mat-form-field>
+                    </div>
+                    <h2>Additional Address Details</h2>
+                    <p>Preferences are used to plan your delivery. However, shipments can sometimes arrive early or
+                        later
+                        than
+                        planned.
+                    </p>
+                    <div class="example-container">
+                        <mat-form-field>
+                            <mat-label>Address Type</mat-label>
+                            <select formControlName="addressType" matNativeControl required>
+                                <option value="home">Home (7 am - 9 pm)</option>
+                                <option value="office">Office (10 am - 6 pm)</option>
+                            </select>
+                        </mat-form-field>
+                    </div>
+                    <button mat-raised-button color="warn" (click)="removeAddress(i)">Remove Address</button>
+                </div>
+
+            </mat-expansion-panel>
+        </div>
+    </mat-accordion>
+    <button mat-raised-button color="primary" (click)="addAddress()">Add new Address</button>
+    <button mat-raised-button color="primary">Save Data</button>
+</form>
